@@ -12,7 +12,7 @@ axios.interceptors.response.use(success=>{
             return;
         }
         if (success.data.msg){
-            Message.success({message.data.msg});
+            Message.success({message:success.data.msg});
         }
     }
     return success.data;
