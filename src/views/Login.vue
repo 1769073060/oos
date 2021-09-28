@@ -23,15 +23,17 @@
 </template>
 
 <script>
+
+
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       captchaUrl: '/oos/captcha?time='+new Date(),
       loginForm: {
         username: 'admin',
         password: '123',
-        code: ''
+        code: '',
       },
       checked: true,
       rules: {
@@ -61,7 +63,10 @@ export default {
     submitLogin() {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          alert("提交成功")
+          this.postRequest('/oos/login',this.loginForm).then(resp=>{ // eslint-disable-line no-unused-vars
+            alert("提交成功")
+
+          })
           // sessionStorage.setItem('isLogin', 'true');
           // this.$store.dispatch("asynUpdateUser", {name: this.form.name})
           // this.$router.push({name: 'Main', params: {name: this.form.name}});
@@ -93,5 +98,10 @@ export default {
 .loginRemember {
   text-align: left;
   margin: 0px 0px 15px 0px;
+}
+
+.el-form-item__content{
+  display: flex;
+  align-items: center;
 }
 </style>

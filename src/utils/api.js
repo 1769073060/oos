@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Message } from 'element-ui';
-import router  from "../router";
+import router from '../router';
 
 //响应拦截器
 axios.interceptors.response.use(success=>{
@@ -38,10 +38,10 @@ let base = '';
 
 
 //传送json格式的post请求
-export const postRequest = ()=>{
+export const postRequest = (url,params)=>{
     return axios({
-        method:'post',
-        url:`${base}${url}`,
+        method: 'post',
+        url: `${base}${url}`,
         data: params
     })
 }
